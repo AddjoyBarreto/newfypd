@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="./manifest.json">
+    <title>location</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mapstyle.css">
+    <!-- iso support -->
+    <link rel="apple-touch-icon" href="./images/icons-64.png">
+    <link rel="apple-touch-icon" href="./images/icons-128.png">
+    <link rel="apple-touch-icon" href="./images/icons-192.png">
+    <link rel="apple-touch-icon" href="./images/icons-256.png">
+    <link rel="apple-touch-icon" href="./images/icons-512.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700"> 
+    <script>
+            $(document).ready(function(){
+                $(".btn1").click(function(){
+                    $(".mapblock").slideUp("slow","swing");
+                    // $(".restofthesection").css("display", "block");
+                     //$(".restofthesection").show(); 
+                });
+                $(".btn2").click(function(){
+                    $(".mapblock").slideDown("slow","swing");
+                    // $(".restofthesection").css({display: "none"},{background:"coral"});
+                   // $(".restofthesection").hide();
+                });
+
+            });
+    </script>
+</head>
+<body>
+    
+    <div class="mapblock">
+        <div class="mapblock" id="map" style="height:70vh;"></div>
+        <div class="navsection container top-left mt-2">
+            <form class="form-inline d-flex justify-content-center col-lg-12">
+                <div class="form-group mr-2 ">
+                    <input type="text" class="form-control" name="search" id="ca" list="Gate-Name" placeholder="search for the gate" >
+                    <datalist id="Gate-Name">
+                        <option>Majorda Gate, Goa</option>
+                        <option>Utorda Gate, Goa</option>
+                    </datalist>
+                </div>
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="infoblock rounded container-fluid" style="background:#F4E0C9;">
+        <div class="topsection" style="height:30vh;">
+            <!-- slide up button -->
+            <div class="text-center pt-3">
+                <button class="btn1 btn" style="background:#F4E0C9;"><i class="fas fa-angle-up fa-2x" style="color:rgba(29, 38, 45, 0.5)"></i></button>
+            </div>
+            <!-- left side -->
+            <div class="row pt-3">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 contentpart">
+                    <div class="gatename h3 d-flex justify-content-center" id="gname" style="font-family: 'Roboto', sans-serif;">UTORDA GATE</div>
+                    <div class="arrival d-flex justify-content-center">
+                        <div> Next Arrival Time: </div> <div class="next-arrival-time"> 8:30</div>
+                    </div>
+                    <div class="wait-time row d-flex justify-content-center">
+                        <div> Aprox. Wait Time: </div> <div class="aproximate-wait-time">5 min</div>
+                    </div>
+                </div>
+                <!-- right side -->
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 gatestatus border row text-center">
+                    <div class="gateimg col-lg-3 col-md-3 col-sm-3 col-3">gate image </div>
+                    <div class="status col-lg-3 col-md-3 col-sm-3 col-3 h2"> OPEN</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="restofthesection pt-5" style="height:70vh;">
+                <div class="container mt-2 mb-5">
+                    <table class="table bg-white text-center text-dark">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Train</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Train</td>
+                            <td>8:45</td>
+                        </tr>
+                        <tr>
+                            <td>Train</td>
+                            <td>9:45</td>
+                        </tr>
+                        <tr>
+                            <td>Train</td>
+                            <td>10:50</td>
+                        </tr>
+                        <tr>
+                            <td>Train</td>
+                            <td>12:30</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="buttonssection border d-flex justify-content-around pt-4">
+                    <button class="btn border-dark" style="background:#F5F1EC;">Bookmark</button>
+                    <button class="btn border-dark" style="background:#F5F1EC;">Remind Me</button>
+                </div>
+                <div class="text-center pt-3">
+                    <button class="btn2 btn" style="background:#F4E0C9;"><i class="fas fa-angle-down fa-2x" style="color:rgba(29, 38, 45, 0.5)"></i></button>
+                </div>
+        </div>
+    </div>
+
+<script src="./mapscript.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9bbgtXGv5T2SG2TdH2HjtgYmx02Vux1A&callback=initMap" async defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+</body>
+</html>
